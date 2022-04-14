@@ -1,3 +1,5 @@
-[Generics][1]
+![Image](something.png)
 
-[1]: https://www.tutorialspoint.com/java/java_generics.htm
+[Link1](something.html)
+
+]
