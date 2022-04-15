@@ -15,8 +15,14 @@ public class MarkdownParse {
             int exclamation = markdown.indexOf("!", currentIndex);
             int openBracket = markdown.indexOf("[", currentIndex);
             if ((exclamation + 1) == openBracket) {
-                currentIndex = markdown.indexOf(")", currentIndex) + 1;
-                continue;
+                currentIndex = markdown.indexOf(")", currentIndex);
+                if (currentIndex == -1) {
+                    break;
+                }
+                else {
+                    currentIndex++;
+                    continue;
+                }
             }
             if (openBracket == -1) {
                 break;

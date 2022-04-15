@@ -2,4 +2,4 @@
 
 [Link1](something.html)
 
-]
+![]
