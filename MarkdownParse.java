@@ -15,12 +15,8 @@ public class MarkdownParse {
             int exclaim = markdown.indexOf("!", currentIndex);
             int openBracket = markdown.indexOf("[", currentIndex);
             if ((exclaim + 1) == openBracket) {
-                currentIndex = markdown.indexOf(")", currentIndex);
-                if (currentIndex == -1) break;
-                else {
-                    currentIndex++;
-                    continue;
-                }
+                currentIndex = openBracket + 1;
+                continue;
             }
             if (openBracket == -1) break;
             int closeBracket = markdown.indexOf("]", openBracket);
