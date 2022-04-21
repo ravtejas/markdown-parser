@@ -12,7 +12,16 @@ public class MarkdownParse {
         // find the next [, then find the ], then find the (, then read link upto next )
         int currentIndex = 0;
         while(currentIndex < markdown.length()) {
+            int exclaim = markdown.indexOf("!", currentIndex);
             int openBracket = markdown.indexOf("[", currentIndex);
+            if ((exclaim + 1) == openBracket) {
+                currentIndex = markdown.indexOf(")", currentIndex);
+                if (currentIndex == -1) break;
+                else {
+                    currentIndex++;
+                    continue;
+                }
+            }
             if (openBracket == -1) break;
             int closeBracket = markdown.indexOf("]", openBracket);
             int openParen = markdown.indexOf("(", closeBracket);
