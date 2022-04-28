@@ -22,4 +22,12 @@ public class MarkdownParseTest {
         ArrayList<String> links = MarkdownParse.getLinks(content);
         assertEquals(List.of("thereallink.com"), links);
     }
+    
+    @Test
+    public void testFailFile() throws IOException {
+        Path fileName = Path.of("broken-everything-file.md");
+        String content = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(content);
+        assertEquals(List.of("website", "([[[[link]]])"), links);
+    }
 }
