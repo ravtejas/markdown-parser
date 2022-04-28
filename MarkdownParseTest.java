@@ -22,4 +22,9 @@ public class MarkdownParseTest {
         ArrayList<String> links = MarkdownParse.getLinks(content);
         assertEquals(List.of("thereallink.com"), links);
     }
+
+    @Test
+    public void failTest() {
+        assertEquals(5, 2 * 3);
+    }
 }
