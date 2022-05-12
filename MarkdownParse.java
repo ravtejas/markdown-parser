@@ -11,10 +11,10 @@ public class MarkdownParse {
         // find the next [, then find the ], then find the (, then read link upto next )
         int currentIndex = 0;
         while (currentIndex < markdown.length()) {
-            int exclaim = markdown.indexOf("!", currentIndex);
+            int exclamationMark = markdown.indexOf("!", currentIndex);
             int openBracket = markdown.indexOf("[", currentIndex);
             // Checking if there is an exclamation mark, which are for images.
-            if (!(exclaim == -1) && ((exclaim + 1) == openBracket)) {
+            if (!(exclamationMark == -1) && ((exclamationMark + 1) == openBracket)) {
                 currentIndex = openBracket + 1;
                 continue;
             }
