@@ -22,4 +22,12 @@ public class MarkdownParseTest {
         ArrayList<String> links = MarkdownParse.getLinks(content);
         assertEquals(List.of("thereallink.com"), links);
     }
+
+    @Test
+    public void testImageFile() throws IOException {
+        Path fileName = Path.of("test-image-file.md");
+        String content = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(content);
+        assertEquals(List.of("thereallink.com"), links);
+    }
 }
