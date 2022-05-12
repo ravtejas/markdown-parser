@@ -18,15 +18,13 @@ public class MarkdownParse {
                 currentIndex = openBracket + 1;
                 continue;
             }
-            // The following will break the loop if we cannot find any of the
-            // syntax for the links.
-            if (openBracket == -1) break;
             int closeBracket = markdown.indexOf("]", openBracket);
-            if (closeBracket == -1) break;
             int openParen = markdown.indexOf("(", closeBracket);
-            if (openParen == -1) break;
             int closeParen = markdown.indexOf(")", openParen);
-            if (closeParen == -1) break;
+            // Breaks the loop if we cannot find any of the
+            // syntax for the links.
+            if (openBracket == -1 || closeBracket == -1 || openParen == -1 ||
+            closeParen == -1) break;
             // Get the link and add it to the list.
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
